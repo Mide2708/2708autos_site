@@ -4,7 +4,6 @@ Pages:
 - index.html (Home)
 - about.html
 - services.html
-- gallery.html (placeholders)
 - contact.html (WhatsApp form)
 
 How to use:
