@@ -1,161 +1,666 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>2708 Autos | Auto Repair & Maintenance in Ibadan</title>
-  <meta name="description" content="We Diagnose It. We Fix It. You Drive With Confidence.
-From engine problems and brake issues to electrical faults and paint restoration, 2708 Auto Repair & Maintenance keeps Ibadan drivers on the road." />
-  <meta name="theme-color" content="#0e0f12" />
-  <link rel="icon" href="assets/img/logo.jpeg" />
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="stylesheet" href="assets/css/style.css" />
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Professional automobile repair and maintenance services including diagnostics, brake repair, oil changes, battery replacement, tire service, suspension repair, and vehicle inspections." />
+  <title>2708 Autos | Auto Repair & Maintenance Services</title>
+  <link rel="icon" href="assets/logo.jpeg" />
+
+  <style>
+    :root {
+      --gold: #f5b21b;
+      --orange: #f28c18;
+      --black: #080808;
+      --dark: #101010;
+      --dark-2: #181818;
+      --soft: #f6f6f6;
+      --gray: #b9b9b9;
+      --white: #ffffff;
+      --border: rgba(245, 178, 27, 0.25);
+      --shadow: 0 24px 70px rgba(0, 0, 0, 0.45);
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      background: var(--black);
+      color: var(--white);
+      line-height: 1.6;
+    }
+    a { color: inherit; text-decoration: none; }
+    img { max-width: 100%; display: block; }
+
+    .top-bar {
+      background: #030303;
+      color: var(--gray);
+      padding: 10px 7%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 15px;
+      flex-wrap: wrap;
+      font-size: 14px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .site-header {
+      position: sticky;
+      top: 0;
+      z-index: 999;
+      background: rgba(10, 10, 10, 0.96);
+      backdrop-filter: blur(12px);
+      padding: 14px 7%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .logo-wrap { display: flex; align-items: center; gap: 12px; }
+    .logo-wrap img { width: 98px; height: auto; }
+    .brand-text strong { display: block; color: var(--gold); letter-spacing: 0.5px; }
+    .brand-text span { display: block; color: var(--gray); font-size: 12px; margin-top: -2px; }
+
+    .nav-menu { display: flex; align-items: center; gap: 24px; list-style: none; }
+    .nav-menu a { font-size: 15px; font-weight: 700; transition: 0.25s ease; }
+    .nav-menu a:hover { color: var(--gold); }
+    .nav-cta {
+      background: linear-gradient(135deg, var(--gold), var(--orange));
+      color: #000 !important;
+      padding: 10px 18px;
+      border-radius: 999px;
+      box-shadow: 0 10px 28px rgba(245,178,27,.22);
+    }
+
+    .mobile-btn {
+      display: none;
+      width: 44px;
+      height: 42px;
+      border: 1px solid var(--border);
+      background: transparent;
+      color: var(--gold);
+      border-radius: 10px;
+      font-size: 24px;
+      cursor: pointer;
+    }
+
+    .hero {
+      min-height: 88vh;
+      padding: 95px 7%;
+      display: flex;
+      align-items: center;
+      background:
+        linear-gradient(90deg, rgba(0,0,0,.92) 0%, rgba(0,0,0,.64) 45%, rgba(0,0,0,.22) 100%),
+        url("assets/hero-banner.png") center/cover no-repeat;
+      position: relative;
+      overflow: hidden;
+    }
+    .hero::after {
+      content: "";
+      position: absolute;
+      bottom: 0; left: 0; right: 0;
+      height: 5px;
+      background: linear-gradient(90deg, var(--gold), var(--orange), transparent);
+    }
+    .hero-content { max-width: 760px; position: relative; z-index: 2; }
+    .eyebrow {
+      display: inline-block;
+      color: var(--gold);
+      border: 1px solid var(--border);
+      background: rgba(0,0,0,.5);
+      padding: 8px 16px;
+      border-radius: 999px;
+      margin-bottom: 20px;
+      font-weight: 800;
+      text-transform: uppercase;
+      font-size: 13px;
+      letter-spacing: 1px;
+    }
+    h1 {
+      font-size: clamp(42px, 6vw, 76px);
+      line-height: 1.03;
+      text-transform: uppercase;
+      margin-bottom: 20px;
+    }
+    h1 span, h2 span { color: var(--gold); }
+    .hero p {
+      color: #e7e7e7;
+      font-size: 19px;
+      max-width: 650px;
+      margin-bottom: 30px;
+    }
+    .hero-actions { display: flex; flex-wrap: wrap; gap: 14px; align-items: center; }
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      border-radius: 999px;
+      padding: 14px 24px;
+      font-weight: 800;
+      border: 0;
+      cursor: pointer;
+      transition: .25s ease;
+      font-size: 15px;
+    }
+    .btn-primary { background: linear-gradient(135deg, var(--gold), var(--orange)); color: #000; }
+    .btn-primary:hover { transform: translateY(-3px); box-shadow: 0 16px 35px rgba(245,178,27,.32); }
+    .btn-outline { border: 1px solid var(--gold); color: var(--gold); background: rgba(0,0,0,.4); }
+    .btn-outline:hover { background: var(--gold); color: #000; }
+
+    section { padding: 88px 7%; }
+    .section-title { max-width: 820px; margin-bottom: 42px; }
+    .section-title .label {
+      color: var(--gold);
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      font-size: 13px;
+      font-weight: 800;
+    }
+    .section-title h2 {
+      font-size: clamp(30px, 4vw, 48px);
+      line-height: 1.12;
+      margin: 10px 0 14px;
+    }
+    .section-title p, .muted { color: var(--gray); font-size: 17px; }
+
+    .about {
+      background: var(--dark-2);
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 50px;
+      align-items: center;
+    }
+    .image-card {
+      border-radius: 24px;
+      overflow: hidden;
+      border: 1px solid var(--border);
+      box-shadow: var(--shadow);
+    }
+    .image-card img { width: 100%; height: 100%; object-fit: cover; }
+    .about p { color: var(--gray); margin-bottom: 18px; font-size: 17px; }
+    .check-list { display: grid; gap: 13px; margin-top: 24px; }
+    .check-list div {
+      background: rgba(255,255,255,.04);
+      padding: 14px 16px;
+      border-left: 4px solid var(--gold);
+      border-radius: 12px;
+    }
+
+    .services { background: var(--black); }
+    .service-layout {
+      display: grid;
+      grid-template-columns: .9fr 1.1fr;
+      gap: 44px;
+      align-items: center;
+    }
+    .service-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 18px;
+    }
+    .card {
+      background: var(--dark-2);
+      border: 1px solid rgba(255,255,255,.08);
+      border-radius: 20px;
+      padding: 24px;
+      transition: .25s ease;
+    }
+    .card:hover { transform: translateY(-5px); border-color: var(--gold); }
+    .card h3 { color: var(--gold); font-size: 20px; margin-bottom: 8px; }
+    .card p { color: var(--gray); font-size: 15px; }
+
+    .why { background: linear-gradient(135deg, #161616, #070707); }
+    .why-grid {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 18px;
+    }
+    .why-card {
+      background: rgba(255,255,255,.04);
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      padding: 26px;
+    }
+    .why-card h3 { color: var(--gold); margin-bottom: 8px; }
+    .why-card p { color: var(--gray); font-size: 15px; }
+
+    .video-section {
+      background: var(--dark-2);
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 44px;
+      align-items: center;
+    }
+    .video-box {
+      position: relative;
+      border-radius: 24px;
+      overflow: hidden;
+      border: 1px solid var(--border);
+      box-shadow: var(--shadow);
+      background: #000;
+    }
+    .video-box img { width: 100%; transition: .35s ease; }
+    .video-box:hover img { transform: scale(1.04); opacity: .88; }
+    .play-overlay {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: radial-gradient(circle, rgba(0,0,0,.05), rgba(0,0,0,.36));
+    }
+    .play-overlay span {
+      width: 88px; height: 88px;
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      background: rgba(245,178,27,.95);
+      color: #000;
+      font-size: 38px;
+      box-shadow: 0 0 38px rgba(245,178,27,.45);
+    }
+
+    .gallery { background: var(--black); }
+    .gallery-layout {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 44px;
+      align-items: center;
+    }
+    .gallery p { color: var(--gray); margin-bottom: 18px; }
+
+    .reviews { background: var(--dark-2); }
+    .review-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 20px;
+    }
+    .review-card {
+      background: #101010;
+      border: 1px solid rgba(255,255,255,.08);
+      border-radius: 20px;
+      padding: 26px;
+    }
+    .stars { color: var(--gold); font-size: 18px; margin-bottom: 12px; letter-spacing: 2px; }
+    .review-card p { color: var(--gray); font-style: italic; margin-bottom: 15px; }
+    .review-card strong { color: var(--gold); }
+
+    .booking {
+      background:
+        linear-gradient(rgba(0,0,0,.89), rgba(0,0,0,.89)),
+        url("assets/hero-banner.png") center/cover fixed no-repeat;
+    }
+    .booking-box {
+      display: grid;
+      grid-template-columns: .85fr 1.15fr;
+      gap: 40px;
+      background: rgba(16,16,16,.94);
+      border: 1px solid var(--border);
+      border-radius: 26px;
+      padding: 38px;
+      box-shadow: var(--shadow);
+    }
+    .contact-lines { margin-top: 22px; display: grid; gap: 11px; color: #e8e8e8; }
+    .contact-lines strong { color: var(--gold); }
+
+    form { display: grid; gap: 14px; }
+    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+    input, select, textarea {
+      width: 100%;
+      padding: 14px 15px;
+      background: #090909;
+      color: var(--white);
+      border: 1px solid rgba(255,255,255,.14);
+      border-radius: 12px;
+      outline: none;
+      font-size: 15px;
+    }
+    input:focus, select:focus, textarea:focus { border-color: var(--gold); }
+    textarea { min-height: 135px; resize: vertical; }
+    .small-note { color: var(--gray); font-size: 13px; }
+
+    .map-section { background: var(--dark-2); }
+    .map-placeholder {
+      border: 1px solid var(--border);
+      border-radius: 24px;
+      background: linear-gradient(135deg, #151515, #070707);
+      overflow: hidden;
+      box-shadow: 0 20px 50px rgba(0,0,0,.35);
+    }
+    .map-placeholder strong { color: var(--gold); display: block; font-size: 24px; margin-bottom: 8px; }
+
+    footer {
+      background: #030303;
+      border-top: 1px solid var(--border);
+      padding: 44px 7% 22px;
+    }
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 1.2fr 1fr 1fr;
+      gap: 34px;
+      margin-bottom: 28px;
+    }
+    .footer-grid img { width: 120px; margin-bottom: 14px; }
+    footer h3 { color: var(--gold); margin-bottom: 14px; }
+    footer p, footer li { color: var(--gray); font-size: 15px; }
+    footer ul { list-style: none; display: grid; gap: 8px; }
+    .footer-bottom {
+      border-top: 1px solid rgba(255,255,255,.08);
+      padding-top: 18px;
+      color: var(--gray);
+      text-align: center;
+      font-size: 14px;
+    }
+
+    .floating-call {
+      position: fixed;
+      right: 18px;
+      bottom: 18px;
+      z-index: 998;
+      background: linear-gradient(135deg, var(--gold), var(--orange));
+      color: #000;
+      padding: 13px 18px;
+      border-radius: 999px;
+      font-weight: 900;
+      box-shadow: 0 14px 38px rgba(0,0,0,.4);
+    }
+
+    @media (max-width: 1020px) {
+      .about, .service-layout, .video-section, .gallery-layout, .booking-box, .footer-grid { grid-template-columns: 1fr; }
+      .why-grid { grid-template-columns: repeat(2, 1fr); }
+      .review-grid { grid-template-columns: 1fr; }
+    }
+    @media (max-width: 780px) {
+      .top-bar { font-size: 12px; padding: 9px 5%; }
+      .site-header { padding: 12px 5%; }
+      .mobile-btn { display: block; }
+      .nav-menu {
+        display: none;
+        position: absolute;
+        left: 5%; right: 5%; top: 78px;
+        background: rgba(8,8,8,.98);
+        border: 1px solid var(--border);
+        border-radius: 18px;
+        padding: 18px;
+        flex-direction: column;
+        align-items: stretch;
+      }
+      .nav-menu.active { display: flex; }
+      .nav-menu a { display: block; padding: 8px 0; }
+      .hero { min-height: 78vh; padding: 80px 5%; }
+      section { padding: 68px 5%; }
+      .service-grid, .why-grid, .form-row { grid-template-columns: 1fr; }
+      .brand-text { display: none; }
+      .logo-wrap img { width: 86px; }
+      .booking-box { padding: 25px; }
+      .floating-call { left: 18px; text-align: center; }
+    }
+  </style>
 </head>
+
 <body>
-  <header class="topbar">
-    <div class="container">
-      <div class="nav">
-        <a class="brand" href="index.html" aria-label="2708 Autos home">
-          <div class="mark"><img src="assets/img/logo.jpeg" alt="2708 Autos logo"></div>
-          <div>
-            <div class="name">2708 Auto Repair &amp; Maintenance</div>
-            <div class="tag">Auto repair and maintenance services</div>
-          </div>
-        </a>
+  <div class="top-bar">
+    <div>Call: +234 000 000 0000</div>
+    <div>Mon - Sat: 8:00 AM - 6:00 PM</div>
+    <div>Auto Repair • Diagnostics • Maintenance</div>
+  </div>
 
-        <nav class="navlinks" aria-label="Primary navigation">
-          <a class="active" href="index.html">Home</a>
-          <a class="" href="about.html">About</a>
-          <a class="" href="services.html">Services</a>
-          <a class="" href="contact.html">Contact</a>
-        </nav>
-
-        <button class="menuBtn" data-menu type="button">Menu</button>
+  <header class="site-header">
+    <a href="#home" class="logo-wrap" aria-label="2708 Autos Home">
+      <img src="assets/logo.jpeg" alt="2708 Autos Logo" />
+      <div class="brand-text">
+        <strong>2708 Autos</strong>
+        <span>Auto repair and maintenance</span>
       </div>
-    </div>
+    </a>
+
+    <button class="mobile-btn" id="mobileBtn" aria-label="Open menu">☰</button>
+    <nav>
+      <ul class="nav-menu" id="navMenu">
+        <li><a href="#home">Home</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#services">Services</a></li>
+        <li><a href="#video">Video</a></li>
+        <li><a href="#gallery">Gallery</a></li>
+        <li><a href="#contact">Contact</a></li>
+        <li><a href="#booking" class="nav-cta">Book Appointment</a></li>
+      </ul>
+    </nav>
   </header>
 
-  
-<main>
-  <section class="hero">
-    <div class="container">
-      <div class="heroWrap">
-        <div class="card heroLeft">
-          <div class="kicker">IBADAN • OYO STATE • NIGERIA</div>
-          <h1>Reliable auto repair, diagnostics, and maintenance—done right.</h1>
-          <p class="sub">At <strong>2708 Auto Repair &amp; Maintenance</strong>, we keep your car safe and road‑ready with honest inspections, clear communication, and quality workmanship.</p>
-
-          <div class="heroActions">
-            <a class="btn" href="contact.html">Book a Service</a>
-            <a class="btn secondary" href="services.html">View Services</a>
-            <a class="btn secondary" href="https://wa.me/2348105498318" target="_blank" rel="noopener">WhatsApp Now</a>
-          </div>
-
-          <div class="heroMeta">
-            <span class="pill">Engine check &amp; service</span>
-            <span class="pill">Diagnostics</span>
-            <span class="pill">Brakes</span>
-            <span class="pill">Electrical</span>
-            <span class="pill">Preventative maintenance</span>
-          </div>
-        </div>
-
-        <div class="card heroRight">
-          <div class="logoBox">
-            <img src="assets/img/logo.jpeg" alt="2708 Autos logo artwork">
-          </div>
-          <div class="card quickInfo">
-            <h3>Quick Booking</h3>
-            <p>Tap below to send your car issue and preferred time via WhatsApp.</p>
-            <div style="margin-top:12px;">
-              <a class="btn" href="https://wa.me/2348105498318?text=Hello%202708%20Autos%2C%20I%20want%20to%20book%20a%20service.%20Car%20make%2Fmodel%3A%20____%20Issue%3A%20____%20Preferred%20date%2Ftime%3A%20____" target="_blank" rel="noopener">Send Booking Message</a>
-            </div>
-            <div class="note" style="margin-top:10px;">We respond as fast as possible during business hours.</div>
-          </div>
+  <main>
+    <section class="hero" id="home">
+      <div class="hero-content">
+        <div class="eyebrow">Reliable • Professional • Trusted</div>
+        <h1>Auto Repair & <span>Maintenance</span> Services</h1>
+        <p>Professional vehicle diagnostics, repairs, and routine maintenance designed to keep your car safe, reliable, and road-ready.</p>
+        <div class="hero-actions">
+          <a href="#booking" class="btn btn-primary">Book Appointment</a>
+          <a href="#services" class="btn btn-outline">View Services</a>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <section class="section">
-    <div class="container">
-      <div class="grid features">
-        <div class="card feature">
-          <div class="icon">🛠️</div>
-          <h3>Professional Repairs</h3>
-          <p>From minor issues to major repairs, we follow proven processes and quality checks.</p>
+    <section class="about" id="about">
+      <div class="image-card">
+        <img src="assets/workshop-about.png" alt="Modern auto repair workshop with vehicles being serviced" />
+      </div>
+      <div>
+        <div class="section-title">
+          <span class="label">About Us</span>
+          <h2>Professional Service You Can <span>Depend On</span></h2>
+          <p>We provide dependable automobile repair and maintenance services with a focus on quality workmanship, honest communication, and customer satisfaction.</p>
         </div>
-        <div class="card feature">
-          <div class="icon">🔎</div>
-          <h3>Accurate Diagnostics</h3>
-          <p>We run proper diagnostic tests to identify the real problem—no guesswork.</p>
-        </div>
-        <div class="card feature">
-          <div class="icon">✅</div>
-          <h3>Clear Communication</h3>
-          <p>We explain what’s needed, what can wait, and the best option for your budget.</p>
+        <p>From routine oil changes to brake repairs, diagnostics, battery replacement, and full vehicle inspections, our goal is to help every customer drive with confidence.</p>
+        <div class="check-list">
+          <div>Experienced auto repair professionals</div>
+          <div>Clean, organized, and modern workshop process</div>
+          <div>Transparent service recommendations</div>
+          <div>Reliable repairs and preventive maintenance</div>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <section class="section">
-    <div class="container">
-      <div class="split">
-        <div class="card panel">
-          <h2>What we do</h2>
-          <p>Complete auto repair and maintenance services in Ibadan.</p>
-          <ul class="list">
-            <li><span class="check">✓</span><div><strong>Engine check &amp; service</strong><div class="note">Oil service, tune‑ups, leak checks, overheating support.</div></div></li>
-            <li><span class="check">✓</span><div><strong>Car diagnostic test</strong><div class="note">Scan, testing, troubleshooting, and repair recommendations.</div></div></li>
-            <li><span class="check">✓</span><div><strong>Brake repair</strong><div class="note">Pads, discs, fluid checks, noise and vibration fixes.</div></div></li>
-            <li><span class="check">✓</span><div><strong>Auto electrical work</strong><div class="note">Wiring, sensors, lights, charging and starting issues.</div></div></li>
-          </ul>
+    <section class="services" id="services">
+      <div class="section-title">
+        <span class="label">Our Services</span>
+        <h2>Complete Auto Repair & Maintenance Solutions</h2>
+        <p>We handle essential vehicle services to help keep your car running smoothly and safely.</p>
+      </div>
+
+      <div class="service-layout">
+        <div class="image-card">
+          <img src="assets/services-collage.png" alt="Collage of automobile repair and maintenance services" />
         </div>
-        <div class="card panel">
-          <h2>Fast way to get help</h2>
-          <p>Message us on WhatsApp with your car make/model, your issue, and a short video if possible.</p>
-          <div class="badgeRow">
-            <span class="badge">Phone/WhatsApp: +2348105498318</span>
-            <a class="badge" href="mailto:2708autos@gmail.com">2708autos@gmail.com</a>
-            <a class="badge" href="https://www.instagram.com/2708autos?igsh=ZmJ0bDNvNTFzbGo2&utm_source=qr" target="_blank" rel="noopener">@2708autos</a>
-          </div>
-
-          <div style="margin-top:16px;" class="card cta">
-            <div>
-              <h2>Need a repair today?</h2>
-              <p>Send a message now and we’ll guide you.</p>
-            </div>
-            <a class="btn" href="https://wa.me/2348105498318" target="_blank" rel="noopener">WhatsApp Now</a>
-          </div>
+        <div class="service-grid">
+          <div class="card"><h3>Engine Diagnostics</h3><p>Professional diagnostic checks to identify vehicle issues accurately.</p></div>
+          <div class="card"><h3>Brake Repair</h3><p>Brake pad replacement, rotor inspection, and brake system service.</p></div>
+          <div class="card"><h3>Oil Change</h3><p>Routine oil and filter service to protect your engine and improve performance.</p></div>
+          <div class="card"><h3>Battery Replacement</h3><p>Battery testing, replacement, and electrical system checks.</p></div>
+          <div class="card"><h3>Tire Service</h3><p>Tire inspection, rotation, pressure checks, and general tire maintenance.</p></div>
+          <div class="card"><h3>Suspension Repair</h3><p>Suspension inspection and repair for comfort, control, and road stability.</p></div>
         </div>
       </div>
-    </div>
-  </section>
-</main>
+    </section>
 
+    <section class="why">
+      <div class="section-title">
+        <span class="label">Why Choose Us</span>
+        <h2>Built on Quality, Trust, and Professional Service</h2>
+        <p>Customers should understand quickly why your shop is reliable, professional, and worth contacting.</p>
+      </div>
+      <div class="why-grid">
+        <div class="why-card"><h3>Honest Diagnostics</h3><p>Clear explanations and service recommendations customers can understand.</p></div>
+        <div class="why-card"><h3>Quality Parts</h3><p>Repairs completed using dependable parts and professional workmanship.</p></div>
+        <div class="why-card"><h3>Fast Turnaround</h3><p>Efficient service to help get customers back on the road quickly.</p></div>
+        <div class="why-card"><h3>Customer Focused</h3><p>Every service handled with care, respect, and attention to detail.</p></div>
+      </div>
+    </section>
 
-  <footer class="footer">
-    <div class="container">
-      <div class="row">
+    <section class="video-section" id="video">
+      <div>
+        <div class="section-title">
+          <span class="label">Watch Our Service Process</span>
+          <h2>See How We Handle Vehicle Care</h2>
+          <p>Use this section for a shop introduction, service walkthrough, customer trust video, or promotional video. The current design uses a professional video thumbnail.</p>
+        </div>
+        <a href="#booking" class="btn btn-primary">Request Service</a>
+      </div>
+      <a href="#" class="video-box" aria-label="Watch video">
+        <img src="assets/video-thumbnail.png" alt="Auto repair promotional video thumbnail" />
+        <div class="play-overlay"><span>▶</span></div>
+      </a>
+    </section>
+
+    <section class="gallery" id="gallery">
+      <div class="gallery-layout">
         <div>
-          <div><strong style="color: var(--text);">2708 Auto Repair &amp; Maintenance</strong></div>
-          <div>Ibadan, Oyo State, Nigeria</div>
-          <div class="badgeRow">
-            <span class="badge">WhatsApp/Call: +2348105498318</span>
-            <span class="badge">Email: 2708autos@gmail.com</span>
-            <a class="badge" href="https://www.instagram.com/2708autos?igsh=ZmJ0bDNvNTFzbGo2&utm_source=qr" target="_blank" rel="noopener">Instagram: @2708autos</a>
+          <div class="section-title">
+            <span class="label">Gallery</span>
+            <h2>Real Work, Real Service, Real Attention to Detail</h2>
+            <p>The gallery section helps customers see that the business is active, professional, and capable of handling vehicle service properly.</p>
           </div>
+          <p>Add more photos later, including before-and-after repairs, customer vehicles, workshop photos, and completed service work.</p>
+          <a href="#booking" class="btn btn-primary">Book Service</a>
         </div>
-        <div class="smalllinks">
-          <a href="services.html">Services</a>
-          <a href="contact.html">Book a Repair</a>
+        <div class="image-card">
+          <img src="assets/mechanic-gallery.png" alt="Mechanic working on car engine" />
         </div>
       </div>
-      <div style="margin-top:14px;">© 2026 2708 Autos. All rights reserved.</div>
+    </section>
+
+    <section class="reviews">
+      <div class="section-title">
+        <span class="label">Customer Reviews</span>
+        <h2>What Customers Say</h2>
+        <p>Testimonials make the website more trustworthy and professional.</p>
+      </div>
+      <div class="review-grid">
+        <div class="review-card"><div class="stars">★★★★★</div><p>“Great service, professional communication, and my vehicle was ready on time.”</p><strong>— Customer Review</strong></div>
+        <div class="review-card"><div class="stars">★★★★★</div><p>“The repair process was smooth and everything was clearly explained before the work started.”</p><strong>— Customer Review</strong></div>
+        <div class="review-card"><div class="stars">★★★★★</div><p>“Reliable maintenance service and a clean professional workshop. Highly recommended.”</p><strong>— Customer Review</strong></div>
+      </div>
+    </section>
+
+    <section class="booking" id="booking">
+      <div class="booking-box">
+        <div>
+          <div class="section-title">
+            <span class="label">Book Appointment</span>
+            <h2>Request Your <span>Service</span></h2>
+            <p>Complete the appointment form and our team will follow up with availability and next steps.</p>
+          </div>
+          <div class="contact-lines" id="contact">
+            <div><strong>Phone:</strong> +234 000 000 0000</div>
+            <div><strong>Email:</strong> info@2708autos.site</div>
+            <div><strong>Hours:</strong> Monday - Saturday, 8:00 AM - 6:00 PM</div>
+            <div><strong>Location:</strong> Podo after Top One, under Powerline, Ibadan, Oyo State, Nigeria</div>
+            <div><strong>Service:</strong> Auto repair, diagnostics, and maintenance</div>
+          </div>
+        </div>
+
+        <form action="https://formsubmit.co/info@2708autos.site" method="POST">
+          <input type="hidden" name="_subject" value="New Auto Service Appointment Request" />
+          <input type="hidden" name="_template" value="table" />
+          <input type="hidden" name="_captcha" value="false" />
+          <input type="hidden" name="_next" value="https://2708autos.site/thank-you.html" />
+
+          <div class="form-row">
+            <input type="text" name="Full Name" placeholder="Full Name" required />
+            <input type="tel" name="Phone Number" placeholder="Phone Number" required />
+          </div>
+          <div class="form-row">
+            <input type="email" name="Email Address" placeholder="Email Address" required />
+            <input type="text" name="Vehicle Make and Model" placeholder="Vehicle Make and Model" required />
+          </div>
+          <select name="Service Needed" required>
+            <option value="">Select Service Needed</option>
+            <option>Engine Diagnostics</option>
+            <option>Brake Repair</option>
+            <option>Oil Change</option>
+            <option>Battery Replacement</option>
+            <option>Tire Service</option>
+            <option>Suspension Repair</option>
+            <option>Vehicle Inspection</option>
+            <option>General Maintenance</option>
+          </select>
+          <input type="date" name="Preferred Appointment Date" />
+          <textarea name="Message" placeholder="Describe the issue or service request"></textarea>
+          <button type="submit" class="btn btn-primary">Submit Appointment Request</button>
+          <p class="small-note">By submitting this form, you agree to be contacted regarding your service request.</p>
+        </form>
+      </div>
+    </section>
+
+    <section class="map-section">
+      <div class="section-title">
+        <span class="label">Location</span>
+        <h2>Visit Our Auto Service Shop</h2>
+        <p>Podo after Top One, under Powerline, Ibadan, Oyo State, Nigeria</p>
+      </div>
+      <div class="map-placeholder">
+        <iframe
+          src="https://www.google.com/maps?q=Podo%20after%20Top%20One%2C%20under%20Powerline%2C%20Ibadan%2C%20Oyo%20State%2C%20Nigeria&output=embed"
+          width="100%"
+          height="350"
+          style="border:0; border-radius:24px; display:block;"
+          allowfullscreen=""
+          loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade">
+        </iframe>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="footer-grid">
+      <div>
+        <img src="assets/logo.jpeg" alt="2708 Autos Logo" />
+        <p>Professional auto repair and maintenance services focused on quality, trust, and reliable vehicle care.</p>
+        <p><strong>Location:</strong> Podo after Top One, under Powerline, Ibadan, Oyo State, Nigeria</p>
+      </div>
+      <div>
+        <h3>Quick Links</h3>
+        <ul>
+          <li><a href="#home">Home</a></li>
+          <li><a href="#about">About Us</a></li>
+          <li><a href="#services">Services</a></li>
+          <li><a href="#booking">Book Appointment</a></li>
+        </ul>
+      </div>
+      <div>
+        <h3>Services</h3>
+        <ul>
+          <li>Engine Diagnostics</li>
+          <li>Brake Repair</li>
+          <li>Oil Change</li>
+          <li>Battery Replacement</li>
+          <li>Tire Service</li>
+        </ul>
+      </div>
     </div>
+    <div class="footer-bottom">© 2026 2708 Autos. All Rights Reserved.</div>
   </footer>
 
-  <script src="assets/js/script.js"></script>
+  <a href="tel:+2340000000000" class="floating-call">Call Now</a>
+
+  <script>
+    const mobileBtn = document.getElementById('mobileBtn');
+    const navMenu = document.getElementById('navMenu');
+
+    mobileBtn.addEventListener('click', () => {
+      navMenu.classList.toggle('active');
+      mobileBtn.textContent = navMenu.classList.contains('active') ? '×' : '☰';
+    });
+
+    document.querySelectorAll('#navMenu a').forEach(link => {
+      link.addEventListener('click', () => {
+        navMenu.classList.remove('active');
+        mobileBtn.textContent = '☰';
+      });
+    });
+  </script>
 </body>
 </html>
