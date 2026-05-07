@@ -346,6 +346,29 @@
     footer h3 { color: var(--gold); margin-bottom: 14px; }
     footer p, footer li { color: var(--gray); font-size: 15px; }
     footer ul { list-style: none; display: grid; gap: 8px; }
+
+    .social-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      margin-top: 14px;
+      padding: 11px 16px;
+      border-radius: 999px;
+      background: linear-gradient(135deg, var(--gold), var(--orange));
+      color: #000;
+      font-weight: 900;
+      width: fit-content;
+      transition: .3s ease;
+    }
+    .social-link:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 12px 28px rgba(245,178,27,.28);
+    }
+    .social-link svg {
+      width: 20px;
+      height: 20px;
+      flex: 0 0 auto;
+    }
     .footer-bottom {
       border-top: 1px solid rgba(255,255,255,.08);
       padding-top: 18px;
@@ -504,7 +527,9 @@
         <div class="section-title">
           <span class="label">Watch Our Service Process</span>
           <h2>See How We Handle Vehicle Care</h2>
-          <p>This section provides a closer look at our shop, service process, and commitment to quality auto repair and maintenance. It is designed to introduce customers to our work, build trust, and showcase the professional care we provide for every vehicle.</p>
+          <p>This section provides a closer look at our shop, service process, and commitment to quality auto repair and maintenance. It is designed to introduce customers to our work, build trust, and showcase the professional care we provide for every vehicle.
+
+Request Service</p>
         </div>
         <a href="#booking" class="btn btn-primary">Request Service</a>
       </div>
@@ -620,6 +645,14 @@
         <img src="assets/logo.jpeg" alt="2708 Autos Logo" />
         <p>Professional auto repair and maintenance services focused on quality, trust, and reliable vehicle care.</p>
         <p><strong>Location:</strong> Top One Garden Podo, Under Powerline, Ibadan, Oyo State, Nigeria</p>
+        <a class="social-link" href="https://www.instagram.com/2708autos?igsh=ZmJ0bDNvNTFzbGo2&utm_source=qr" target="_blank" rel="noopener" aria-label="Follow 2708 Autos on Instagram">
+          <svg viewBox="0 0 24 24" aria-hidden="true" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <rect x="3" y="3" width="18" height="18" rx="5" stroke="currentColor" stroke-width="2"></rect>
+              <circle cx="12" cy="12" r="4" stroke="currentColor" stroke-width="2"></circle>
+              <circle cx="17.5" cy="6.5" r="1.2" fill="currentColor"></circle>
+            </svg>
+          Follow @2708autos
+        </a>
       </div>
       <div>
         <h3>Quick Links</h3>
