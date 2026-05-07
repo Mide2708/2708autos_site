@@ -17,7 +17,7 @@ Important updates before publishing:
    https://formsubmit.co/2708autos@gmail.com
 4. Replace the _next URL if your website uses a different domain:
    https://2708autos.site/thank-you.html
-5. Location has been set to: Podo after Top One, under Powerline, Ibadan, Oyo State, Nigeria
+5. Location has been set to: Top One Garden Podo, Under Powerline, Ibadan, Oyo State, Nigeria
 6. Add your real Google Maps embed in the Location section when ready.
 
 FormSubmit note:
