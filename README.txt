@@ -11,10 +11,10 @@ Files included:
 - assets/video-thumbnail.png
 
 Important updates before publishing:
-1. Replace the phone number: +234 000 000 0000
-2. Replace the email if needed: info@2708autos.site
+1. Replace the phone number: +234 810 549 8318
+2. Replace the email if needed: 2708autos@gmail.com
 3. Replace the FormSubmit email in index.html if needed:
-   https://formsubmit.co/info@2708autos.site
+   https://formsubmit.co/2708autos@gmail.com
 4. Replace the _next URL if your website uses a different domain:
    https://2708autos.site/thank-you.html
 5. Location has been set to: Podo after Top One, under Powerline, Ibadan, Oyo State, Nigeria
